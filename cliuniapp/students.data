@@ -1,0 +1,62 @@
+[
+    {
+        "id": "000123",
+        "name": "Alice Johnson",
+        "email": "alice.johnson@university.com",
+        "password": "Password123",
+        "subjects": [
+            {
+                "id": "101",
+                "name": "Mathematics",
+                "mark": 75,
+                "grade": "D"
+            },
+            {
+                "id": "102",
+                "name": "Physics",
+                "mark": 62,
+                "grade": "C"
+            }
+        ]
+    },
+    {
+        "id": "000456",
+        "name": "Bob Smith",
+        "email": "bob.smith@university.com",
+        "password": "Welcome456",
+        "subjects": [
+            {
+                "id": "103",
+                "name": "Chemistry",
+                "mark": 48,
+                "grade": "F"
+            },
+            {
+                "id": "104",
+                "name": "Biology",
+                "mark": 55,
+                "grade": "P"
+            },
+            {
+                "id": "105",
+                "name": "History",
+                "mark": 66,
+                "grade": "C"
+            }
+        ]
+    },
+    {
+        "id": "000789",
+        "name": "Charlie Brown",
+        "email": "charlie.brown@university.com",
+        "password": "Start789",
+        "subjects": []
+    },
+    {
+        "id": "750244",
+        "name": "aditya",
+        "email": "aditya.patel@university.com",
+        "password": "Aditya3939",
+        "subjects": []
+    }
+]
