@@ -33,42 +33,46 @@ class AdminController:
                 print("Invalid option. Try again.")
 
     def remove_student(self):
-        email = input("Enter the student's email to remove: ").strip()
+        id = input("Enter the student's id to remove: ").strip()
         before_count = len(self.students)
-        self.students = [s for s in self.students if s.email != email]
+        self.students = [s for s in self.students if s.id != id]
         after_count = len(self.students)
 
         if before_count == after_count:
             print("No student found with that email.")
         else:
             self.database.save_students(self.students)
-            print(f"Student {email} removed successfully.")
+            print(f"Student {id} removed successfully.")
 
     def partition_pass_fail(self):
         pass_students = [s for s in self.students if s.has_passed()]
         fail_students = [s for s in self.students if not s.has_passed()]
 
-        print(f"\n--- PASS Students ({len(pass_students)}) ---")
-        for s in pass_students:
-            print(f"{s.name} ({s.email}) - Average Mark: {s.average_mark():.2f}")
+        def print_group(title, students):
+            print(f"\n--- {title} Students ({len(students)}) ---")
+            print(f"{'Name':<20} {'Email':<35} {'Avg Mark':<10}")
+            print("-" * 70)
+            for s in students:
+                print(f"{s.name:<20} {s.email:<35} {s.average_mark():<10.2f}")
 
-        print(f"\n--- FAIL Students ({len(fail_students)}) ---")
-        for s in fail_students:
-            print(f"{s.name} ({s.email}) - Average Mark: {s.average_mark():.2f}")
+        print_group("PASS", pass_students)
+        print_group("FAIL", fail_students)
 
     def group_by_grade(self):
         grade_groups = {'HD': [], 'D': [], 'C': [], 'P': [], 'F': []}
 
         for student in self.students:
             for subject in student.subjects:
-                grade_groups.get(subject.grade, []).append((student.name, subject.name, subject.mark))
+                grade_groups.get(subject.grade, []).append((student.name, subject.id, subject.mark))
 
         print("\n--- Students Grouped by Grade ---")
         for grade, entries in grade_groups.items():
             print(f"\nGrade {grade}:")
             if entries:
+                print(f"{'Name':<20} {'Subject ID':<12} {'Mark':<5}")
+                print("-" * 40)
                 for entry in entries:
-                    print(f"{entry[0]} - {entry[1]} (Mark: {entry[2]})")
+                    print(f"{entry[0]:<20} {entry[1]:<12} {entry[2]:<5}")
             else:
                 print("No students.")
 
@@ -78,8 +82,13 @@ class AdminController:
             return
 
         print("\n--- All Students ---")
+        print(f"{'ID':<8} {'Name':<20} {'Email':<35} {'Subjects':<10} {'Avg Mark':<10} {'Status':<6}")
+        print("-" * 90)
+
         for student in self.students:
-            print(f"{student.name} ({student.email}) - Enrolled Subjects: {len(student.subjects)}")
+            avg_mark = student.average_mark()
+            status = 'PASS' if student.has_passed() else 'FAIL'
+            print(f"{student.id:<8} {student.name:<20} {student.email:<35} {len(student.subjects):<10} {avg_mark:<10.2f} {status:<6}")
 
     def clear_all_students(self):
         confirmation = input("Are you sure you want to clear ALL students? (yes/no): ").lower()
