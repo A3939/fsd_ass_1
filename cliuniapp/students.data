@@ -3,17 +3,15 @@
         "id": "000123",
         "name": "Alice Johnson",
         "email": "alice.johnson@university.com",
-        "password": "Password123",
+        "password": "8d5647a456007ba44c5095cf21197f161853166ee32acfa19eb8a7ce3b41d3c5",
         "subjects": [
             {
                 "id": "101",
-                "name": "Mathematics",
                 "mark": 75,
                 "grade": "D"
             },
             {
                 "id": "102",
-                "name": "Physics",
                 "mark": 62,
                 "grade": "C"
             }
@@ -23,23 +21,20 @@
         "id": "000456",
         "name": "Bob Smith",
         "email": "bob.smith@university.com",
-        "password": "Welcome456",
+        "password": "b0b748f69f47f2c9aa1cfb0d0d72872e197cf4ed6ad31b6d60b4e46c93bd9fc1",
         "subjects": [
             {
                 "id": "103",
-                "name": "Chemistry",
                 "mark": 48,
                 "grade": "F"
             },
             {
                 "id": "104",
-                "name": "Biology",
                 "mark": 55,
                 "grade": "P"
             },
             {
                 "id": "105",
-                "name": "History",
                 "mark": 66,
                 "grade": "C"
             }
@@ -49,21 +44,51 @@
         "id": "000789",
         "name": "Charlie Brown",
         "email": "charlie.brown@university.com",
-        "password": "Start789",
+        "password": "d15a34d8346fa2618a29e3e076cd45a920ae84c753a96206edc19c196fd28640",
         "subjects": []
     },
     {
         "id": "750244",
         "name": "aditya",
         "email": "aditya.patel@university.com",
-        "password": "Aditya3939",
+        "password": "8747658fef9dbb3a5d6dd78c6ffb6f16bd1a929c7f23eef8b9b873767a6f6e9a",
         "subjects": []
     },
     {
         "id": "587439",
         "name": "Steav",
         "email": "steav.roger@university.com",
-        "password": "Helloworld12345",
+        "password": "3d73c0e43571d05c458341384a8b8bd621373c68872ad6e341dc837284f6a249",
+        "subjects": [
+            {
+                "id": "587",
+                "mark": 66,
+                "grade": "C"
+            },
+            {
+                "id": "720",
+                "mark": 25,
+                "grade": "F"
+            },
+            {
+                "id": "772",
+                "mark": 76,
+                "grade": "D"
+            }
+        ]
+    },
+    {
+        "id": "014826",
+        "name": "hulk",
+        "email": "hulk.banner@university.com",
+        "password": "a5a8b747ed430ffccaea03dbe5e348fbb11fd4c23914324fde0ed6b827badcac",
+        "subjects": []
+    },
+    {
+        "id": "136224",
+        "name": "Tony Stark",
+        "email": "tony.stark@university.com",
+        "password": "6c229689b294e2e137c87d5c07e588c39d6d52384b0796e4f94679757de2afa3",
         "subjects": []
     }
 ]
