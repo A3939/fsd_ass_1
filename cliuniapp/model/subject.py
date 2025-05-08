@@ -1,9 +1,8 @@
 import random
 
 class Subject:
-    def __init__(self, name):
+    def __init__(self):
         self.id = f"{random.randint(1, 999):03d}"
-        self.name = name
         self.mark = random.randint(25, 100)
         self.grade = self.calculate_grade()
 
@@ -22,14 +21,13 @@ class Subject:
     def to_dict(self):
         return {
             'id': self.id,
-            'name': self.name,
             'mark': self.mark,
             'grade': self.grade
         }
 
     @staticmethod
     def from_dict(data):
-        subj = Subject(data['name'])
+        subj = Subject()
         subj.id = data['id']
         subj.mark = data['mark']
         subj.grade = data['grade']

@@ -1,6 +1,7 @@
 from model.student import Student
 from model.database import Database
 import utils
+import random
 
 class StudentController:
     def __init__(self):
@@ -27,20 +28,21 @@ class StudentController:
 
     def register(self):
         print("\n--- Register New Student ---")
-        name = input("Enter your name: ").strip()
         email = input("Enter your email (must be firstname.lastname@university.com): ").strip()
-        password = input("Enter your password (start with uppercase, 5+ letters, 3+ digits): ").strip()
-
         if not utils.validate_email(email):
             print("Invalid email format.")
-            return
-        if not utils.validate_password(password):
-            print("Invalid password format.")
             return
 
         if any(student.email == email for student in self.students):
             print("A student with this email already exists.")
             return
+
+        password = input("Enter your password (start with uppercase, 5+ letters, 3+ digits): ").strip()
+        if not utils.validate_password(password):
+            print("Invalid password format.")
+            return
+
+        name = input("Enter your name: ").strip()
 
         new_student = Student(name, email, password)
         self.students.append(new_student)
@@ -89,16 +91,15 @@ class StudentController:
 
     def enrol_subject(self):
         if len(self.logged_in_student.subjects) >= 4:
-            print("Maximum 4 subjects allowed.")
+            print("Student are allow to entroll in 4 subjects only.")
             return
 
-        subject_name = input("Enter subject name to enrol: ").strip()
-        self.logged_in_student.enrol_subject(subject_name)
+        self.logged_in_student.enrol_subject()
         self.database.save_students(self.students)
 
     def drop_subject(self):
-        subject_name = input("Enter subject name to drop: ").strip()
-        self.logged_in_student.drop_subject(subject_name)
+        subject_id = input("Enter subject id to drop: ").strip()
+        self.logged_in_student.drop_subject(subject_id)
         self.database.save_students(self.students)
 
     def view_enrolments(self):
@@ -107,7 +108,7 @@ class StudentController:
             return
         print("\nEnrolled Subjects:")
         for subject in self.logged_in_student.subjects:
-            print(f"- {subject.name} (Mark: {subject.mark}, Grade: {subject.grade})")
+            print(f"=> SUB: {subject.id} (Mark: {subject.mark}, Grade: {subject.grade})")
         print(f"Average Mark: {self.logged_in_student.average_mark():.2f}")
         print(f"Status: {'PASS' if self.logged_in_student.has_passed() else 'FAIL'}")
 
