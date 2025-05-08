@@ -1,13 +1,12 @@
 import random
 from model.subject import Subject
-from utils import hash_password
 
 class Student:
     def __init__(self, name, email, password):
         self.id = f"{random.randint(1, 999999):06d}"
         self.name = name
         self.email = email
-        self.password = hash_password(password)
+        self.password = password
         self.subjects = []
 
     def enrol_subject(self):
@@ -23,7 +22,7 @@ class Student:
         print(f"Dropped subject {subject_id:}.")
 
     def change_password(self, new_password):
-        self.password = hash_password(new_password)
+        self.password = new_password
         print("Password updated successfully.")
 
     def average_mark(self):

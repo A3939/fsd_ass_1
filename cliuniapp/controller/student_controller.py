@@ -103,14 +103,22 @@ class StudentController:
         self.database.save_students(self.students)
 
     def view_enrolments(self):
-        if not self.logged_in_student.subjects:
-            print("No subjects enrolled.")
+        subjects = self.logged_in_student.subjects
+        if not subjects:
+            print("You are not enrolled in any subjects.")
             return
-        print("\nEnrolled Subjects:")
-        for subject in self.logged_in_student.subjects:
-            print(f"=> SUB: {subject.id} (Mark: {subject.mark}, Grade: {subject.grade})")
-        print(f"Average Mark: {self.logged_in_student.average_mark():.2f}")
-        print(f"Status: {'PASS' if self.logged_in_student.has_passed() else 'FAIL'}")
+
+        print("\n--- Enrolled Subjects ---")
+        print(f"{'Subject ID':<12} {'Mark':<6} {'Grade':<6}")
+        print("-" * 30)
+        for s in subjects:
+            print(f"{s.id:<12} {s.mark:<6} {s.grade:<6}")
+
+        avg = self.logged_in_student.average_mark()
+        status = "PASS" if self.logged_in_student.has_passed() else "FAIL"
+        print("-" * 30)
+        print(f"{'Average Mark:':<12} {avg:.2f}")
+        print(f"{'Status:':<12} {status}")
 
     def change_password(self):
         new_password = input("Enter new password: ").strip()
