@@ -58,5 +58,12 @@
         "email": "aditya.patel@university.com",
         "password": "Aditya3939",
         "subjects": []
+    },
+    {
+        "id": "587439",
+        "name": "Steav",
+        "email": "steav.roger@university.com",
+        "password": "Helloworld12345",
+        "subjects": []
     }
 ]
