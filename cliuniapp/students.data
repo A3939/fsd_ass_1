@@ -23,13 +23,6 @@
         ]
     },
     {
-        "id": "758846",
-        "name": "JJ PP",
-        "email": "jj.pp@university.com",
-        "password_hash": "fc296d6062773fab86fdd2f2cdf832e221d791255bffc6a2ddd515c153616760",
-        "subjects": []
-    },
-    {
         "id": "672072",
         "name": "Tony Stark",
         "email": "tony.start@university.com",
@@ -44,6 +37,29 @@
                 "id": "394",
                 "mark": 61,
                 "grade": "P"
+            }
+        ]
+    },
+    {
+        "id": "857405",
+        "name": "JJK",
+        "email": "jj.haha@university.com",
+        "password_hash": "8d39a2df23f5cc759b972b2c15d1e63d1e3a2e5520f2fe93cb9a8f0d24b8bb02",
+        "subjects": [
+            {
+                "id": "681",
+                "mark": 89,
+                "grade": "HD"
+            },
+            {
+                "id": "887",
+                "mark": 88,
+                "grade": "HD"
+            },
+            {
+                "id": "282",
+                "mark": 39,
+                "grade": "F"
             }
         ]
     }
