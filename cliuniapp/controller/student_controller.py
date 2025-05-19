@@ -80,7 +80,6 @@ class StudentController:
             elif choice == 'x':
                 print("Logging out...")
                 self.logged_in_student = None
-                self.database.save_students(self.students)
                 break
             else:
                 print("Invalid option.")

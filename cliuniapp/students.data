@@ -28,5 +28,23 @@
         "email": "jj.pp@university.com",
         "password_hash": "fc296d6062773fab86fdd2f2cdf832e221d791255bffc6a2ddd515c153616760",
         "subjects": []
+    },
+    {
+        "id": "672072",
+        "name": "Tony Stark",
+        "email": "tony.start@university.com",
+        "password_hash": "288453b8cdaaac2f9ee5a739fb7061fddc3b881c2e419e276978ff29959f4691",
+        "subjects": [
+            {
+                "id": "763",
+                "mark": 42,
+                "grade": "F"
+            },
+            {
+                "id": "394",
+                "mark": 61,
+                "grade": "P"
+            }
+        ]
     }
 ]
