@@ -20,4 +20,7 @@ def university_menu():
             print("Invalid choice.")
 
 if __name__ == "__main__":
-    university_menu()
+    try:
+        university_menu()
+    except KeyboardInterrupt:
+        print("\nProgram interrupted by user. Exiting gracefully.")

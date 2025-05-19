@@ -26,17 +26,22 @@
         "id": "672072",
         "name": "Tony Stark",
         "email": "tony.start@university.com",
-        "password_hash": "288453b8cdaaac2f9ee5a739fb7061fddc3b881c2e419e276978ff29959f4691",
+        "password_hash": "7c6c3e0a663e9bf3e98f531bf38b45c26c5de50f946b45500e9bd5eebecf5903",
         "subjects": [
-            {
-                "id": "763",
-                "mark": 42,
-                "grade": "F"
-            },
             {
                 "id": "394",
                 "mark": 61,
                 "grade": "P"
+            },
+            {
+                "id": "224",
+                "mark": 53,
+                "grade": "P"
+            },
+            {
+                "id": "259",
+                "mark": 67,
+                "grade": "C"
             }
         ]
     },
