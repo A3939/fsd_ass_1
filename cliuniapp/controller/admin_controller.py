@@ -1,11 +1,65 @@
 from model.database import Database
+import getpass  # For secure password input
 
 class AdminController:
     def __init__(self):
         self.database = Database()
         self.students = self.database.load_students()
+        # Admin credentials (username/password)
+        self.admin_username = "admin"
+        self.admin_password = "admin123"
+        self.is_authenticated = False
+
+    def admin_login(self):
+        """Handle admin authentication"""
+        attempts = 0
+        max_attempts = 3
+
+        while attempts < max_attempts: 
+            print("\n--- Admin Login ---")
+            username = input("Username: ").strip()
+            password = getpass.getpass("Password: ").strip()
+
+            if username == self.admin_username and password == self.admin_password:
+                self.is_authenticated = True
+                print("Login successful!")
+                return True
+            else:
+                attempts += 1
+                remaining_attempts = max_attempts - attempts
+                print(f"Invalid credentials. {remaining_attempts} attempts remaining.")
+        
+        print("Maximum login attempts reached. Access denied.")
+        return False
+
+    def change_admin_password(self):
+        """Allow admin to change password"""
+        if not self.is_authenticated:
+            print("You must be logged in to change the password.")
+            return
+
+        print("\n--- Change Admin Password ---")
+        current_password = getpass.getpass("Current password: ")
+        
+        if current_password != self.admin_password:
+            print("Incorrect current password.")
+            return
+
+        new_password = getpass.getpass("New password: ")
+        confirm_password = getpass.getpass("Confirm new password: ")
+
+        if new_password != confirm_password:
+            print("Passwords don't match.")
+            return
+
+        self.admin_password = new_password
+        print("Password changed successfully!")
 
     def admin_menu(self):
+        """Main admin menu (only accessible after login)"""
+        if not self.is_authenticated and not self.admin_login():
+            return
+
         while True:
             print("\n--- Admin System Menu ---")
             print("(1) Remove a Student")
@@ -13,7 +67,8 @@ class AdminController:
             print("(3) Group Students by Grade")
             print("(4) View All Students")
             print("(5) Clear All Students")
-            print("(x) Exit Admin Menu")
+            print("(6) Change Admin Password")
+            print("(x) Logout")
             choice = input("Choose an option: ").lower()
 
             if choice == '1':
@@ -26,11 +81,17 @@ class AdminController:
                 self.view_all_students()
             elif choice == '5':
                 self.clear_all_students()
+            elif choice == '6':
+                self.change_admin_password()
             elif choice == 'x':
-                print("Exiting Admin Menu...")
+                self.is_authenticated = False
+                print("Logged out successfully.")
                 break
             else:
                 print("Invalid option. Try again.")
+
+
+
 
     def remove_student(self):
         id = input("Enter the student's id to remove: ").strip()
