@@ -21,5 +21,12 @@
                 "grade": "D"
             }
         ]
+    },
+    {
+        "id": "758846",
+        "name": "JJ PP",
+        "email": "jj.pp@university.com",
+        "password_hash": "fc296d6062773fab86fdd2f2cdf832e221d791255bffc6a2ddd515c153616760",
+        "subjects": []
     }
 ]

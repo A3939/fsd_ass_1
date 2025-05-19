@@ -43,8 +43,7 @@ class StudentController:
         name = input("Enter your name: ").strip()
 
         new_student = Student.create_with_password(name, email, password)
-        self.students.append(new_student)
-        self.database.save_students(self.students)
+        self.database.save_or_update_student(new_student)
         print(f"Registration successful! Welcome, {name}.")
 
     def login(self):
