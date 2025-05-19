@@ -1,22 +1,17 @@
 class DashboardController:
-    def __init__(self, root, app, student, students):
+    def __init__(self, root, app, username):
         from view.dashboard_view import DashboardView
         self.root = root
         self.app = app
-        self.student = student
-        self.students = students
-        self.view = DashboardView(root, self, student.name)
+        self.view = DashboardView(root, self, username)
 
     def open_enrolment(self):
-        self.view.pack_forget()
-        from controller.enrolment_controller import EnrolmentController
-        EnrolmentController(self.root, self.app, self.student, self.students)
+        # Placeholder for enrolment window
+        print("Open Enrolment Window - to be implemented")
 
-    # Implement this later for subject window
     def open_subjects(self):
-        self.view.pack_forget()
-        from controller.subject_controller import SubjectController
-        SubjectController(self.root, self.app, self.student, self.students)
+        # Placeholder for subject window
+        print("Open Subject Window - to be implemented")
 
     def logout(self):
         self.view.pack_forget()

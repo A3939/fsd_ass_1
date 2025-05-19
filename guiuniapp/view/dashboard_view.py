@@ -5,11 +5,7 @@ class DashboardView(tk.Frame):
         super().__init__(root)
         self.controller = controller
         self.root = root
-        self.bg_color = "#e6e9f8"       # Soft bluish background (not white)
-        self.primary_color = "#1635CC"  # Title text color
-        self.button_color = "#5973F7"
-        self.button_active = "#3A51C7"
-        self.label_color = "#0A30F0"
+
         self.configure(bg="#e6e9f8")
         self.pack(fill="both", expand=True)
 
@@ -29,15 +25,9 @@ class DashboardView(tk.Frame):
             self,
             text=text,
             font=("Segoe UI", 12, "bold"),
-            bg=self.button_color,         # "#5973F7"
-            fg=self.button_active,
-            activebackground=self.button_active,  # "#3A51C7"
-            activeforeground=self.button_color,     # Ensure text stays white on active
-            padx=15,
-            pady=8,
-            relief="flat",
-            borderwidth=0,
-            highlightthickness=0,         # Remove border highlight on focus
-            cursor="hand2",               # Mouse pointer changes to hand on hover
-            command=command
-        ).pack(pady=30)
+            bg="#5973F7", fg="white",
+            activebackground="#3A51C7",
+            width=22, height=2,
+            command=command,
+            relief="flat"
+        ).pack(pady=12)

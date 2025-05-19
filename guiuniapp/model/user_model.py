@@ -3,7 +3,7 @@ import re
 import os
 
 class UserModel:
-    DATA_FILE = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "students.data"))
+    DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "students.data")
 
     EMAIL_PATTERN = r'^[a-z]+\.[a-z]+@university\.com$'
     PASSWORD_PATTERN = r'^[A-Z][a-zA-Z]{5,}\d{3,}$'
@@ -21,9 +21,9 @@ class UserModel:
             with open(self.DATA_FILE, 'r') as file:
                 users = json.load(file)
                 for user in users:
-                    if user["email"] == email and user["password"] == '123':
-                        return True
-            return False
+                    if user["email"] == email and user["password"] == password:
+                        return user  # return whole user dict if authenticated
+            return None
         except FileNotFoundError:
             raise Exception("User data file not found.")
         except json.JSONDecodeError:
