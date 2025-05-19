@@ -4,6 +4,139 @@
         "name": "Aditya Patel",
         "email": "aditya.patel@university.com",
         "password": "Helloworld12345",
-        "subjects": []
+        "subjects": [
+            {
+                "id": "712",
+                "mark": 97,
+                "grade": "HD"
+            },
+            {
+                "id": "057",
+                "mark": 92,
+                "grade": "HD"
+            },
+            {
+                "id": "213",
+                "mark": 88,
+                "grade": "HD"
+            },
+            {
+                "id": "986",
+                "mark": 89,
+                "grade": "HD"
+            }
+        ]
+    },
+    {
+        "id": "627271",
+        "name": "Somit",
+        "email": "somit.nakarmi@university.com",
+        "password": "Helloworld1234",
+        "subjects": [
+            {
+                "id": "675",
+                "mark": 76,
+                "grade": "D"
+            },
+            {
+                "id": "458",
+                "mark": 95,
+                "grade": "HD"
+            },
+            {
+                "id": "184",
+                "mark": 34,
+                "grade": "F"
+            },
+            {
+                "id": "039",
+                "mark": 28,
+                "grade": "F"
+            }
+        ]
+    },
+    {
+        "id": "931118",
+        "name": "Scarlett Nakarmi",
+        "email": "scarlett.nakarmi@university.com",
+        "password": "Hellowoel1234",
+        "subjects": [
+            {
+                "id": "318",
+                "mark": 35,
+                "grade": "F"
+            },
+            {
+                "id": "746",
+                "mark": 87,
+                "grade": "HD"
+            },
+            {
+                "id": "116",
+                "mark": 31,
+                "grade": "F"
+            },
+            {
+                "id": "200",
+                "mark": 85,
+                "grade": "HD"
+            }
+        ]
+    },
+    {
+        "id": "198416",
+        "name": "SoVit Nakarmi",
+        "email": "sovit.nakarmi@university.com",
+        "password": "Lavacake1234",
+        "subjects": [
+            {
+                "id": "154",
+                "mark": 48,
+                "grade": "F"
+            },
+            {
+                "id": "211",
+                "mark": 83,
+                "grade": "D"
+            },
+            {
+                "id": "953",
+                "mark": 30,
+                "grade": "F"
+            },
+            {
+                "id": "561",
+                "mark": 60,
+                "grade": "P"
+            }
+        ]
+    },
+    {
+        "id": "605641",
+        "name": "Daniel Radcliff",
+        "email": "daniel.radcliff@university.com",
+        "password": "Daniel1234",
+        "subjects": [
+            {
+                "id": "557",
+                "mark": 100,
+                "grade": "HD"
+            },
+            {
+                "id": "030",
+                "mark": 44,
+                "grade": "F"
+            },
+            {
+                "id": "914",
+                "mark": 80,
+                "grade": "D"
+            },
+            {
+                "id": "021",
+                "mark": 38,
+                "grade": "F"
+            }
+        ]
     }
 ]
