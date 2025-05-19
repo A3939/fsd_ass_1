@@ -1,12 +1,10 @@
 from model.student import Student
 from model.database import Database
 import utils
-import random
 
 class StudentController:
     def __init__(self):
         self.database = Database()
-        self.students = self.database.load_students()
         self.logged_in_student = None
 
     def student_menu(self):
@@ -33,7 +31,7 @@ class StudentController:
             print("Invalid email format.")
             return
 
-        if any(student.email == email for student in self.students):
+        if self.database.find_student_by_email(email) is not None:
             print("A student with this email already exists.")
             return
 
@@ -44,7 +42,7 @@ class StudentController:
 
         name = input("Enter your name: ").strip()
 
-        new_student = Student(name, email, password)
+        new_student = Student.create_with_password(name, email, password)
         self.students.append(new_student)
         self.database.save_students(self.students)
         print(f"Registration successful! Welcome, {name}.")
@@ -52,16 +50,15 @@ class StudentController:
     def login(self):
         print("\n--- Student Login ---")
         email = input("Enter your email: ").strip()
-        password = input("Enter your password: ").strip()
+        student = self.database.find_student_by_email(email)
 
-        for student in self.students:
-            if student.email == email and student.password == password:
-                print(f"Welcome {student.name}!")
-                self.logged_in_student = student
-                self.subject_enrolment_menu()
-                return
+        if student and student.verify_password(input("Enter your password: ").strip()):
+            print(f"Welcome {student.name}!")
+            self.logged_in_student = student
+            self.subject_enrolment_menu()
+        else:
+            print("Invalid email or password.")
         
-        print("Invalid email or password.")
 
     def subject_enrolment_menu(self):
         while True:
@@ -95,12 +92,12 @@ class StudentController:
             return
 
         self.logged_in_student.enrol_subject()
-        self.database.save_students(self.students)
+        self.database.save_or_update_student(self.logged_in_student)
 
     def drop_subject(self):
         subject_id = input("Enter subject id to drop: ").strip()
         self.logged_in_student.drop_subject(subject_id)
-        self.database.save_students(self.students)
+        self.database.save_or_update_student(self.logged_in_student)
 
     def view_enrolments(self):
         subjects = self.logged_in_student.subjects
@@ -126,4 +123,4 @@ class StudentController:
             print("Invalid password format.")
             return
         self.logged_in_student.change_password(new_password)
-        self.database.save_students(self.students)
+        self.database.save_or_update_student(self.logged_in_student)

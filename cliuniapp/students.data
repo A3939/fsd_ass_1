@@ -1,9 +1,25 @@
 [
     {
-        "id": "815047",
-        "name": "Aditya Patel",
-        "email": "aditya.patel@university.com",
-        "password": "Helloworld12345",
-        "subjects": []
+        "id": "096975",
+        "name": "AA PP",
+        "email": "aa.pp@university.com",
+        "password_hash": "f4eb171b8e19e4ff5647c7f6d324682b644bad7cd596df6200a355095da4bf66",
+        "subjects": [
+            {
+                "id": "503",
+                "mark": 57,
+                "grade": "P"
+            },
+            {
+                "id": "629",
+                "mark": 26,
+                "grade": "F"
+            },
+            {
+                "id": "475",
+                "mark": 79,
+                "grade": "D"
+            }
+        ]
     }
 ]

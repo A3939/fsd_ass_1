@@ -22,3 +22,26 @@ class Database:
     def clear_students(self):
         with open(self.FILE_PATH, 'w') as f:
             json.dump([], f)
+
+    def find_student_by_email(self, email):
+        with open(self.FILE_PATH, 'r') as f:
+            data = json.load(f)
+            for item in data:
+                if item['email'] == email:
+                    return Student.from_dict(item)
+        return None
+    
+    def save_or_update_student(self, student):
+        with open(self.FILE_PATH, 'r') as f:
+            data = json.load(f)
+
+        # Find student index by email if exists
+        for i, item in enumerate(data):
+            if item['email'] == student.email:
+                data[i] = student.to_dict()
+                break
+        else:
+            data.append(student.to_dict())
+
+        with open(self.FILE_PATH, 'w') as f:
+            json.dump(data, f, indent=4)
